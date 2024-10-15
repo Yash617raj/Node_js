@@ -3,7 +3,7 @@ const user = require("./MOCK_DATA.json")
 
 const app = express()
 
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true})) // it takes the value from frontend and first convert it into object and then send to the req.body
 
 app.use((req,res,next)=>{
   console.log("Hello from middleware 1"); // so this is basically holding the data as it is neither ending the data nor transfarring it
