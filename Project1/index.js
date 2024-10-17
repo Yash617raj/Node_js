@@ -27,6 +27,12 @@ app.get("/user",(req,res)=>{
 //   res.json(users);
 // })
 
+app.use("/api/users",(req,res,next)=>{
+  // res.setHeader("myName","Yash raj"); // this is a custom header 
+  console.log(req.headers);
+  next();
+})
+
 app
   .route("/api/users/:id")
   .get((req, res) => {
