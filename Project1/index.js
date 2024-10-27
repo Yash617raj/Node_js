@@ -12,6 +12,10 @@ app.use((req, res, next) => {
   next(); // Passes control to the next middleware
 });
 
+app.get("/api/users",(req,res)=>{
+  res.send(users)
+})
+
 app.get("/user", (req, res) => {
   const html = `
     <ul>
@@ -49,7 +53,17 @@ app
 
 app.post("/api/users", (req, res) => {
   const body = req.body; // Accessing data sent in the POST request body
-  users.push({ ...body, id: users.length + 1 }); // Adds a new user with a unique ID
+  if (
+    !body ||
+    !body.first_name ||
+    !body.last_name ||
+    body.email ||
+    body.gender ||
+    body.job_title
+  ){
+    return res.status(400).json("all fields are required");
+  }
+    users.push({ ...body, id: users.length + 1 }); // Adds a new user with a unique ID
   fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err) => {
     if (err)
       return res.status(500).json({ status: "error", message: err.message }); // Sends error response if write fails
