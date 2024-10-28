@@ -1,0 +1,13 @@
+MongoDb is No-SQL Document based database
+i. the main difference between no-sql and sql is that sql works on realation/table whereas nosql works on table
+ii. NoSQL databases are designed to handle large amounts of unstructured or semi-structured data
+Strong support for aggregation pipes
+works on BSON format
+best for node application
+
+some command in MongoDb:-
+i. show dbs- this will show all the database present in your MongoDb
+ii. use <dbs_name> - this will switch the database to the name that you have given
+iii. show collection - this will show all the collection present in your specific database;
+iv. db.<collection_name>.find() - this will show all the data present in the collection
+v. db.<collection_name>.insert() - this will insert document in the collection
