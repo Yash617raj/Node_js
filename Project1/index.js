@@ -42,6 +42,7 @@ app
   .get((req, res) => {
     const id = Number(req.params.id); // Convert 'id' from string to number
     const user = users.find((user) => user.id === id); // Finds user by ID in the users array
+    if(!user) return res.status(404).json({error: "user not found"});
     res.json(user); // Sends the found user as JSON
   })
   .patch((req, res) => {
@@ -57,11 +58,11 @@ app.post("/api/users", (req, res) => {
     !body ||
     !body.first_name ||
     !body.last_name ||
-    body.email ||
-    body.gender ||
-    body.job_title
+    !body.email ||
+    !body.gender ||
+    !body.job_title
   ){
-    return res.status(400).json("all fields are required");
+    return res.status(400).json({msg: "all fields are required"}); // this status is send when the data is not correct data is not present (bad request)
   }
     users.push({ ...body, id: users.length + 1 }); // Adds a new user with a unique ID
   fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err) => {
