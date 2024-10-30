@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const fs = require("fs"); // Importing the 'fs' module to handle file operations
 
 const app = express();
 
