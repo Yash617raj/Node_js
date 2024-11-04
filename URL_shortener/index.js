@@ -1,9 +1,14 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
+
 const urlRoute = require("./routes/url");
 const path = require("path");
 const connectMongo = require("./connect");
 const URL = require("./models/url");
 const staticRoute = require("./routes/staticRouter")
+const userRoute = require("./routes/user")
+const { isLoggedIn, checkAuth } = require("./middleware/auth");
+
 
 
 const app = express(); // Initialize Express app
@@ -19,8 +24,10 @@ app.set("views", path.resolve("./views")); // Define the path to the views folde
 
 app.use(express.json()); // middleware to parse JSON data
 app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
 
-app.use("/url", urlRoute);
-app.use("/",staticRoute);
+app.use("/url",isLoggedIn, urlRoute);
+app.use("/", checkAuth, staticRoute);
+app.use("/user", userRoute);
 
 app.listen(PORT, () => console.log(`Server is connected to ${PORT}`));
