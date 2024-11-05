@@ -1,4 +1,4 @@
-/*
+
     HTTP status code:- It indicate whether a specific HTTP request has been successfull completed:
     These are group into five response:
     1) Infromational Response(100-199)
@@ -17,5 +17,3 @@
     500 - internal server error
     501 - not implemented
     
-
-*/

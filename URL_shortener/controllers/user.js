@@ -32,11 +32,13 @@ async function handleLogin(req, res) {
   }
 
   // Generating a unique session ID and storing it in the session management system
-  const sessionId = uuidv4();
-  setUser(sessionId, user);
+//   const sessionId = uuidv4();
+//   setUser(sessionId, user);
+    const token = setUser(user);
 
   // Setting a cookie named "uid" with the session ID for identifying the user session
-  res.cookie("uid", sessionId);
+//   res.cookie("uid", sessionId);
+  res.cookie("uid", token);
 
   // Redirecting the user to the home page after successful login
   return res.redirect("/");
