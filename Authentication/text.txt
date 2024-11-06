@@ -2,4 +2,5 @@ There are two types of Authentication Pattern:-
 i. Stateful:-which maintan state or data or server side;
 ii. Stateless:-which has no state;
 
-statefull is memory intesive that means it uses our server memoryto store data
+statefull is memory intesive that means it uses our server memory to store data
+stateless memory store data in a json web token instead of a server which help in reducing the memory usage;
