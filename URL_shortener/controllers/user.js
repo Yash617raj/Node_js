@@ -38,10 +38,13 @@ async function handleLogin(req, res) {
 
   // Setting a cookie named "uid" with the session ID for identifying the user session
 //   res.cookie("uid", sessionId);
-  res.cookie("uid", token);
+
+  res.cookie("uid", token); 
 
   // Redirecting the user to the home page after successful login
   return res.redirect("/");
+
+  // return res.json({ token }); // now instead of using cookies we can also directly use response
 }
 
 module.exports = {

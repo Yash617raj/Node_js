@@ -27,7 +27,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use("/url",isLoggedIn, urlRoute);
-app.use("/", checkAuth, staticRoute);
+app.use("/", staticRoute);
 app.use("/user", userRoute);
 
 app.listen(PORT, () => console.log(`Server is connected to ${PORT}`));

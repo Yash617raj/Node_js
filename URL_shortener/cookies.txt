@@ -1,0 +1,19 @@
+I) Cookies are domain-specific, meaning they are tied to the domain where they are set. For example:
+
+i) If a cookie is created on localhost, it will only be accessible on localhost.
+ii) Similarly, if a cookie is created on facebook.com, it will only be sent with requests to facebook.com.
+
+
+II) Cookies are automatically included in every request made to the domain they belong to, regardless of the
+HTTP method (GET, POST, PUT, etc.).
+
+III) We can set an custom domain & and expiry date for the cookie 
+
+IV) Cookies work only on browser
+
+-------------------------------------------------------------------------------------------------------------
+
+I) Header: In this we send out token in the form of json 
+II) It is user responsibity to keep track of it istead of the server 
+III) we can use it with the help of built in headers: "Authorization: Bearer <token>"
+i) Bearer means we are using token based authorization
