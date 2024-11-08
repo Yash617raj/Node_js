@@ -39,8 +39,7 @@ async function handleLogin(req, res) {
   // Setting a cookie named "uid" with the session ID for identifying the user session
 //   res.cookie("uid", sessionId);
 
-  res.cookie("uid", token); 
-
+  res.cookie("token", token); 
   // Redirecting the user to the home page after successful login
   return res.redirect("/");
 

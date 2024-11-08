@@ -1,0 +1,3 @@
+First of all the main difference between authentication and authorization is that in 
+i)authentication:- we verify a user's identity to ensure they are who they claim to be.(Who are you?)
+ii)authorization:- we permit what action user can perform on the system.(what you are allowed to do?)

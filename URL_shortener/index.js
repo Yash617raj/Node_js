@@ -7,7 +7,8 @@ const connectMongo = require("./connect");
 const URL = require("./models/url");
 const staticRoute = require("./routes/staticRouter")
 const userRoute = require("./routes/user")
-const { isLoggedIn, checkAuth } = require("./middleware/auth");
+// const { isLoggedIn, checkAuth } = require("./middleware/auth");
+const { checkAuthorization, restrictTo } = require("./middleware/auth");
 
 
 
@@ -25,9 +26,10 @@ app.set("views", path.resolve("./views")); // Define the path to the views folde
 app.use(express.json()); // middleware to parse JSON data
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(checkAuthorization);
 
-app.use("/url",isLoggedIn, urlRoute);
-app.use("/", staticRoute);
+app.use("/url",restrictTo(["NORMAL","ADMIN"]), urlRoute);
 app.use("/user", userRoute);
+app.use("/", staticRoute);
 
 app.listen(PORT, () => console.log(`Server is connected to ${PORT}`));
