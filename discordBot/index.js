@@ -16,7 +16,6 @@ client.on("messageCreate",(message)=>{ // Event listener for when a new message 
     return;
   }
   
-
       message.reply({
         content: "Hi! from the bot side",
       });
