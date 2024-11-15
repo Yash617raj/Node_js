@@ -28,3 +28,4 @@ client.on("interactionCreate", interaction =>{ // Event listener for handling in
 })
 
 client.login(process.env.TOKEN);
+// what up dog
